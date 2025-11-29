@@ -62,7 +62,7 @@ const Checkout: NextPage = () => {
       <div className="grid md:grid-cols-3 gap-6">
         <div className="md:col-span-2">
           <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md space-y-4">
-            <h2 className="text-xl font-semibold mb-4">Shipping Information</h2>
+            <h2 className="text-xl font-semibold text-blue-600 mb-4">Shipping Information</h2>
             
             <div className="grid md:grid-cols-2 gap-4">
               <div>
@@ -81,7 +81,7 @@ const Checkout: NextPage = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-1">
                   Email *
                 </label>
                 <input
@@ -98,7 +98,7 @@ const Checkout: NextPage = () => {
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-900 mb-1">
                 Phone number *
               </label>
               <input
@@ -114,7 +114,7 @@ const Checkout: NextPage = () => {
             </div>
 
             <div>
-              <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="address" className="block text-sm font-medium text-gray-900 mb-1">
                 Street address *
               </label>
               <input
@@ -131,7 +131,7 @@ const Checkout: NextPage = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="city" className="block text-sm font-medium text-gray-900 mb-1">
                   City *
                 </label>
                 <input
@@ -146,7 +146,7 @@ const Checkout: NextPage = () => {
                 />
               </div>
               <div>
-                <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="zipCode" className="block text-sm font-medium text-gray-900 mb-1">
                   ZIP Code *
                 </label>
                 <input
@@ -163,7 +163,7 @@ const Checkout: NextPage = () => {
             </div>
 
             <div>
-              <label htmlFor="paymentMethod" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="paymentMethod" className="block text-sm font-medium text-gray-900 mb-1">
                 Payment method *
               </label>
               <select
@@ -171,7 +171,7 @@ const Checkout: NextPage = () => {
                 name="paymentMethod"
                 value={formData.paymentMethod}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900"
               >
                 <option value="cod">Cash on Delivery</option>
                 <option value="card">Credit/Debit Card (Coming Soon)</option>
@@ -191,27 +191,27 @@ const Checkout: NextPage = () => {
 
         <div>
           <div className="bg-white p-6 rounded shadow-md sticky top-24">
-            <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
-            <div className="space-y-3 mb-4">
+            <h3 className="text-lg font-semibold text-blue-600 mb-4">Order Summary</h3>
+            <div className="space-y-3 text-gray-900 mb-4">
               {items.map((item) => (
-                <div key={item.id} className="flex justify-between text-sm">
-                  <span className="text-gray-600">
+                <div key={item.id} className="flex justify-between text-gray-900 text-sm">
+                  <span className="text-gray-900">
                     {item.title} x {item.quantity}
                   </span>
-                  <span className="font-medium">{formatCurrency(item.price * item.quantity)}</span>
+                  <span className="font-medium text-gray-900">{formatCurrency(item.price * item.quantity)}</span>
                 </div>
               ))}
             </div>
             <div className="border-t pt-3 space-y-2">
               <div className="flex justify-between text-sm">
-                <span className="text-gray-600">Subtotal</span>
-                <span className="font-medium">{formatCurrency(total)}</span>
+                <span className="text-gray-900">Subtotal</span>
+                <span className="font-medium text-gray-900">{formatCurrency(total)}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-gray-600">Shipping</span>
+                <span className="text-gray-900">Shipping</span>
                 <span className="font-medium text-green-600">Free</span>
               </div>
-              <div className="flex justify-between text-lg font-bold border-t pt-2">
+              <div className="flex justify-between text-gray-900 text-lg font-bold border-t pt-2">
                 <span>Total</span>
                 <span>{formatCurrency(total)}</span>
               </div>

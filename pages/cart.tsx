@@ -27,7 +27,7 @@ const Cart: NextPage = () => {
   return (
     <div className="grid md:grid-cols-3 gap-6">
       <div className="md:col-span-2 bg-white p-6 rounded shadow-md">
-        <h2 className="text-xl font-semibold mb-4 text-gray-800">Your cart ({itemCount} items)</h2>
+        <h2 className="text-xl font-semibold mb-4 text-blue-600">Your cart ({itemCount} items)</h2>
         <div className="space-y-4">
           {items.map((item) => (
             <div key={item.id} className="flex gap-4 border-b pb-4">
@@ -47,14 +47,14 @@ const Cart: NextPage = () => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                    className="px-2 py-1 border rounded hover:bg-gray-100"
+                    className="px-2 py-1 border rounded hover:bg-gray-300 text-gray-900"
                   >
                     -
                   </button>
-                  <span className="w-8 text-center">{item.quantity}</span>
+                  <span className="w-8 text-center text-gray-900">{item.quantity}</span>
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                    className="px-2 py-1 border rounded hover:bg-gray-100"
+                    className="px-2 py-1 border rounded hover:bg-gray-300 text-gray-900"
                   >
                     +
                   </button>
@@ -72,19 +72,19 @@ const Cart: NextPage = () => {
       </div>
       <aside>
         <div className="p-6 bg-white border rounded shadow-sm sticky top-24">
-          <h3 className="font-semibold text-lg mb-4 text-gray-800">Order Summary</h3>
+          <h3 className="font-semibold text-lg mb-4 text-blue-600">Order Summary</h3>
           <div className="space-y-2 mb-4">
             <div className="flex justify-between">
-              <span className="text-gray-600">Subtotal</span>
-              <span className="font-semibold">{formatCurrency(total)}</span>
+              <span className="text-gray-900">Subtotal</span>
+              <span className="font-semibold text-gray-900">{formatCurrency(total)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Shipping</span>
-              <span className="font-semibold">Free</span>
+              <span className="text-gray-900">Shipping</span>
+              <span className="font-semibold text-gray-900">Free</span>
             </div>
             <div className="border-t pt-2 flex justify-between text-lg">
-              <span className="font-bold">Total</span>
-              <span className="font-bold">{formatCurrency(total)}</span>
+              <span className="font-bold text-gray-900">Total</span>
+              <span className="font-bold text-gray-900">{formatCurrency(total)}</span>
             </div>
           </div>
           <Link
