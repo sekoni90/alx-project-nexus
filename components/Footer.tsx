@@ -9,11 +9,11 @@ const Footer: React.FC = () => {
         {/* Footer Logo */}
         <h2 className="text-xl md:text-4xl font-semibold mb-4 md:mb-0">
          AJOCKS STORE  </h2>
-<nav className="flex-1 flex justify-center space-x-6 mb-4 md:mb-0">
+<nav className="flex-1 flex justify-center space-x-6 mb-4 md:mb-0 text-white">
           <Link href="/" className="hover:text-[#E2D609] text-lg transition-colors duration-300">Home</Link>
-          <Link href="https://www.socomec.co.uk/en-gb/terms-conditions-use" className="hover:text-[#E2D609] text-lg transition-colors duration-300">Terms & Conditions</Link>
+          <Link href="/terms-and-conditions" className="hover:text-[#E2D609] text-lg transition-colors duration-300">Terms & Conditions</Link>
           <Link href="/contact" className="hover:text-[#E2D609] text-lg transition-colors duration-300">Contact</Link>
-          <Link href="https://www.socomec.co.uk/en-gb/privacy-policy" className="hover:text-[#E2D609] text-lg transition-colors duration-300">Privacy Policy</Link>
+          <Link href="/privacy-policy" className="hover:text-[#E2D609] text-lg transition-colors duration-300">Privacy Policy</Link>
         </nav>
 
         <div className="flex space-x-4">

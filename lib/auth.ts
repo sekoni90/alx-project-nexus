@@ -6,6 +6,10 @@ import {
   confirmPasswordReset as confirmPasswordResetFirebase,
   applyActionCode,
   signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  FacebookAuthProvider,
   User,
 } from 'firebase/auth';
 import { auth } from './firebase';
@@ -24,6 +28,39 @@ export const registerUser = async (email: string, password: string): Promise<Use
 export const signInUser = async (email: string, password: string): Promise<User> => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    return userCredential.user;
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+};
+
+// Sign in with Google
+export const signInWithGoogle = async (): Promise<User> => {
+  try {
+    const provider = new GoogleAuthProvider();
+    const userCredential = await signInWithPopup(auth, provider);
+    return userCredential.user;
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+};
+
+// Sign in with GitHub
+export const signInWithGithub = async (): Promise<User> => {
+  try {
+    const provider = new GithubAuthProvider();
+    const userCredential = await signInWithPopup(auth, provider);
+    return userCredential.user;
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
+};
+
+// Sign in with Facebook
+export const signInWithFacebook = async (): Promise<User> => {
+  try {
+    const provider = new FacebookAuthProvider();
+    const userCredential = await signInWithPopup(auth, provider);
     return userCredential.user;
   } catch (error: any) {
     throw new Error(error.message);

@@ -68,3 +68,23 @@ export const addDocument = async (collectionName: string, data: any): Promise<st
     throw new Error(error.message);
   }
 };
+
+// Fetch products from fakestoreapi as a fallback/product demo
+import type { Product } from '@/types/product';
+
+export async function fetchProducts(): Promise<Product[]> {
+  const res = await fetch('https://fakestoreapi.com/products');
+  if (!res.ok) throw new Error('Failed to fetch products');
+  const data = await res.json();
+  // Map fields to our Product type
+  return data.map((p: any) => ({
+    id: String(p.id),
+    name: p.title || p.name,
+    title: p.title || p.name,
+    category: p.category || 'uncategorized',
+    price: Number(p.price) || 0,
+    image: p.image || '',
+    rating: p.rating?.rate,
+    description: p.description,
+  }));
+}
